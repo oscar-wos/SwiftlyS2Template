@@ -6,7 +6,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
-    <AssemblyName>Sessions</AssemblyName>
+    <AssemblyName>SwiftlyS2Template</AssemblyName>
     <OutputPath>$(MSBuildThisFileDirectory)../build/</OutputPath>
   </PropertyGroup>
   <ItemGroup>
