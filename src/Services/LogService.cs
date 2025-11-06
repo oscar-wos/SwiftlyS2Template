@@ -8,7 +8,7 @@ namespace SwiftlyS2Template.Services;
 public class LogService(ISwiftlyCore core) : ILogService, IDisposable
 {
     private readonly Logger _logger = new(
-        Path.Join(core.GameDirectory, "logs", "source2timer"),
+        Path.Join(core.GameDirectory, "logs", "SwiftlyS2Template"),
         accuracy: 1
     );
 
