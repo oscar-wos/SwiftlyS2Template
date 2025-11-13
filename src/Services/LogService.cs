@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
 using RLogger;
 using SwiftlyS2.Shared;
@@ -12,15 +13,16 @@ public class LogService(ISwiftlyCore core) : ILogService, IDisposable
         accuracy: 1
     );
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void LogDebug(string message, Exception? exception = null, ILogger? logger = null)
     {
 #if DEBUG
         logger?.LogDebug(exception, "{message}", message);
-#endif
-
         _logger.Debug(message, exception);
+#endif
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void LogInformation(string message, Exception? exception = null, ILogger? logger = null)
     {
 #if DEBUG
@@ -30,6 +32,7 @@ public class LogService(ISwiftlyCore core) : ILogService, IDisposable
         _logger.Information(message, exception);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void LogWarning(string message, Exception? exception = null, ILogger? logger = null)
     {
 #if DEBUG
@@ -39,6 +42,7 @@ public class LogService(ISwiftlyCore core) : ILogService, IDisposable
         _logger.Warning(message, exception);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void LogError(string message, Exception? exception = null, ILogger? logger = null)
     {
 #if DEBUG
@@ -48,6 +52,7 @@ public class LogService(ISwiftlyCore core) : ILogService, IDisposable
         _logger.Error(message, exception);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public Exception LogCritical(
         string message,
         Exception? exception = null,
