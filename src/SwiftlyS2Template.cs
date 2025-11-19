@@ -12,7 +12,7 @@ public partial class SwiftlyS2Template(ISwiftlyCore core) : BasePlugin(core)
     private IServiceProvider? _serviceProvider;
     private ILogService? _logService;
 
-    public override void ConfigureSharedInterface(IInterfaceManager interfaceManager)
+    public override void Load(bool hotReload)
     {
         ServiceCollection services = new();
 
@@ -22,10 +22,8 @@ public partial class SwiftlyS2Template(ISwiftlyCore core) : BasePlugin(core)
         _serviceProvider = services.BuildServiceProvider();
 
         _logService = _serviceProvider.GetRequiredService<ILogService>();
-        _logService.LogInformation("SwiftlyS2Template Configured", logger: Core.Logger);
+        _logService.LogInformation("SwiftlyS2Template Loaded", logger: Core.Logger);
     }
-
-    public override void Load(bool hotReload) { }
 
     public override void Unload() => (_serviceProvider as IDisposable)?.Dispose();
 }
