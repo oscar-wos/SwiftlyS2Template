@@ -2,7 +2,7 @@ using Microsoft.Extensions.Logging;
 
 namespace SwiftlyS2Template.Contracts;
 
-public interface ILogService
+public interface ILogService : IDisposable
 {
     void LogDebug(string message, Exception? exception = null, ILogger? logger = null);
 

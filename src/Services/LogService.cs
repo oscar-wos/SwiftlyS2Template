@@ -6,7 +6,7 @@ using SwiftlyS2Template.Contracts;
 
 namespace SwiftlyS2Template.Services;
 
-public class LogService(ISwiftlyCore core) : ILogService, IDisposable
+internal class LogService(ISwiftlyCore core) : ILogService
 {
     private readonly Logger _logger = new(
         Path.Join(core.GameDirectory, "logs", "SwiftlyS2Template"),
